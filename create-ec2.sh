@@ -5,7 +5,7 @@ NAMES=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping"
 INSTANCE_TYPE=""
 IMAGE_ID="ami-03265a0778a880afb"
 SECURITY_GROUP_ID="sg-076d950dcb72cc617"
-
+DOMINE_NAME=devops.store
 for i in "${NAMES[@]}"
 do
   if [[ $i == "mongodb" || $i == "mysql" ]]
@@ -18,4 +18,16 @@ do
 
   IP_ADDRES=$(aws ec2 run-instances --image-id $IMAGE_ID  --instance-type $INSTANCE_TYPE  --security-group-ids $SECURITY_GROUP_ID --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$i}]" | jq -r '.Instances[0].PrivateIpAddress')
   echo "created $i instance: $IP_ADDRES"
+   aws route53 change-resource-record-sets --hosted-zone-id Z08310291HO6SKKR1U225 --change-batch '
+    {
+            "Changes": [{
+            "Action": "CREATE",
+                        "ResourceRecordSet": {
+                            "Name": "'$i.$DOMAIN_NAME'",
+                            "Type": "A",
+                            "TTL": 300,
+                            "ResourceRecords": [{ "Value": "'$IP_ADDRESS'"}]
+                        }}]
+    }
+    '
 done
