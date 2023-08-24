@@ -1,5 +1,5 @@
 #!/bin/bash
-NAMES=("mongodb" "rdis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dispatch" "web")
+NAMES=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dispatch" "web")
 
 #if mongodb or mysql instanec type should be t3.micro ,for all others t2.micro
 INSTANCE_TYPE=""
@@ -15,5 +15,5 @@ do
      INSTANCE_TYPE="t2.micro"
   fi  
   echo "creating $i instance"
-  aws ec2 run-instances --image-id $IMAGE_ID  --instance-type $INSTANCE_TYPE  --security-group-ids $SECURITY_GROUP_ID --tag-specifications"ResourceType=instance,Tags=[{Key=Name,Value=$i}]"
+  aws ec2 run-instances --image-id $IMAGE_ID  --instance-type $INSTANCE_TYPE  --security-group-ids $SECURITY_GROUP_ID --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$i}]"
 done
