@@ -32,3 +32,7 @@ do
     }
     '
 done
+
+#improvement
+#check instance alredy created or not
+#update route53 record   
