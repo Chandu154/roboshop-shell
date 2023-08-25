@@ -51,7 +51,7 @@ VALIDATE $? "downloading catalogue artifact"
 
 #VALIDATE $? "Moving into app directory"
 
-unzip /tmp/catalogue.zip &>>$LOGFILE
+unzip /tmp/frontend.zip &>>$LOGFILE
 
 VALIDATE $? "unzipping catalogue"
 
