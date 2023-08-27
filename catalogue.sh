@@ -84,6 +84,6 @@ yum install mongodb-org-shell -y &>>$LOGFILE
 
 VALIDATE $? "Installing mongo client"
 
-mongo --host mongodb.devops.store </app/schema/catalogue.js &>>$LOGFILE
+mongo --host 172.31.47.169 </app/schema/catalogue.js &>>$LOGFILE
 
 VALIDATE $? "loading catalogue data into mongodb"
