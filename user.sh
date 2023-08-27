@@ -47,7 +47,7 @@ curl -o /tmp/user.zip https://roboshop-artifacts.s3.amazonaws.com/user.zip &>>$L
 
 VALIDATE $? "downloading user artifact"
 
-cd /app &>>$LOGFILE
+#cd /app &>>$LOGFILE
 
 VALIDATE $? "Moving into app directory"
 
