@@ -47,7 +47,7 @@ curl -o /tmp/user.zip https://roboshop-artifacts.s3.amazonaws.com/user.zip &>>$L
 
 VALIDATE $? "downloading user artifact"
 
-#cd /app &>>$LOGFILE
+cd /app &>>$LOGFILE
 
 VALIDATE $? "Moving into app directory"
 
@@ -84,6 +84,6 @@ yum install mongodb-org-shell -y &>>$LOGFILE
 
 VALIDATE $? "Installing mongo client"
 
-mongo --host 172.31.33.148 </app/schema/user.js &>>$LOGFILE
+mongo --host mongodb.joindevops.store </app/schema/user.js &>>$LOGFILE
 
 VALIDATE $? "loading user data into mongodb"
