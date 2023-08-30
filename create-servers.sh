@@ -37,4 +37,4 @@ done
 
 #improvement
 #check instance alredy created or not
-#update route53 record   
+#check the route53 record exists,if exists update pther wise create route53 record
