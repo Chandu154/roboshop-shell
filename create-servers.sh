@@ -4,7 +4,7 @@ NAMES=$@
 #if mongodb or mysql instanec type should be t3.micro ,for all others t2.micro
 INSTANCE_TYPE=""
 IMAGE_ID=ami-03265a0778a880afb
-SECURITY_GROUP_ID=sg-076d950dcb72cc617
+SECURITY_GROUP_ID=sg-0e17ba4cc1df4fd77
 DOMINE_NAME=joindevops.store
 HOSTED_ZONE=Z0638867286EEEYHY6IBV
 
